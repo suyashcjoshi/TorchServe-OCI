@@ -1,5 +1,7 @@
 # TorchServe-OCI
-## Serve PyTorch Models from Oracle Cloud Infrastructure(OCI) for free - Step by step guide
+
+ ![Cloud ML Model](https://cdn.app.compendium.com/uploads/user/e7c690e8-6ff9-102a-ac6d-e4aebca50425/2178fa83-87f2-4bdc-a2ff-384a5382d3bd/File/307d8ed1bb26135d656ad1c18f52435a/machine_learning_cloud_detailed_200x200.png)
+## How to serve PyTorch Models from Oracle Cloud Infrastructure(OCI) for free - step by step guide
 
 1. Sign up for Oracle Cloud Always Free Service : https://www.oracle.com/cloud/free/ or login if you're already account holder. Oracle Cloud provides many 'always free' resources and we will use free "Compute (VM)" from where we will serve our pre-trained PyTorch model. You can read more about free cloud offerings [here](https://docs.cloud.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm)
 
@@ -66,14 +68,24 @@
     --handler image_classifier
   mkdir model_store # this will be our model repository in the cloud
   mv densenet161.mar model_store/
+  torchserve --start --model-store model_store --models densenet161=densenet161.mar
   ```
   
-  7. Test : Finally let's test our API endpoint. Open a new tab and run the following commands:
+  7. Test : Finally let's test our API endpoint by sending the model image using HTTP POST request with a .jpg of an animal and it should return what it is. Open a new tab and run the following commands to download the image and then run inference on it using CURL commands.
+  
+  ![Test Image 1](https://raw.githubusercontent.com/suyashjoshi/TorchServe-OCI/main/LDN-Z-CAT-1.jpg)
   
   ```
-  curl -O 
-  curl -X POST http://127.0.0.1:8080/predictions/densenet161 -T animal.jpg
+  curl -O https://raw.githubusercontent.com/suyashjoshi/TorchServe-OCI/main/LDN-Z-CAT-1.jpg
+  curl -X POST http://127.0.0.1:8080/predictions/densenet161 -T LDN-Z-CAT-1.jpg
   ```
   
 Congratualtions now you have a cloud end point that you can reach to do ML infrence, this was deployed using TorchServe and in future tutorial, I will show you how to create a ReactJS Client App that will call this endpoint for ML Inference.
 
+******
+
+References:
+
+1. Model Server Guide for TorchServe : https://github.com/pytorch/serve/blob/master/docs/README.md
+2. Deploy Your Model using TorchServe (YouTube video) : https://www.youtube.com/watch?v=jdE4hPf9juk
+3. TorchServe is a tool for serving neural net models for inference : https://pypi.org/project/torchserve/
