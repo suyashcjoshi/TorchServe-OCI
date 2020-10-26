@@ -16,6 +16,8 @@
 
 4. Log into this free Linux instance using from your browser by clicking on 'Cloud Shell Icon'. Alternativly you can login to the VM from your local machine terminal application using SSH keys with username 'opc'. For more information about that see [here](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/testingconnection.htm)
 
+ ![OCI Console](https://raw.githubusercontent.com/suyashjoshi/TorchServe-OCI/main/Screen%20Shot%202020-10-26%20at%2011.24.14%20AM.png)
+
  * Chage permission for your private key to be read only : `chmod 400 <private_key>` where <private_key> is the full path and name of the file that contains the private key associated with the instance you want to access.
  * Connect to VM on Oracle Cloud by typing: `ssh –i <private_key> <username>@<public-ip-address>` where <private_key> is the full path and name of the file that contains the private key associated with the instance you want to access. <username> is the default username for the instance. For Oracle Linux and CentOS images, the default username is *opc*. For Ubuntu images, the default username is *ubuntu*.<public-ip-address> is your instance IP address that you retrieved from the Console.
 
