@@ -91,3 +91,4 @@ References:
 1. Model Server Guide for TorchServe : https://github.com/pytorch/serve/blob/master/docs/README.md
 2. Deploy Your Model using TorchServe (YouTube video) : https://www.youtube.com/watch?v=jdE4hPf9juk
 3. TorchServe is a tool for serving neural net models for inference : https://pypi.org/project/torchserve/
+4. Dataset to Train the model from Kaggle : https://www.kaggle.com/c/dogs-vs-cats/data
